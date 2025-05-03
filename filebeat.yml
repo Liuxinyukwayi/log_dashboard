@@ -1,0 +1,15 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+  tags: ["nginx-access"]
+
+output.kafka:
+  hosts: ["kafka:9092"]
+  topic: "nginx-logs"
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+
+logging.level: debug

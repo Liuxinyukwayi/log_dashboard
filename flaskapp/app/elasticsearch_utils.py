@@ -3,7 +3,7 @@ from elasticsearch import Elasticsearch
 class ElasticsearchClient:
     def __init__(self, hosts):
         # 连接到 Elasticsearch
-        self.es = Elasticsearch("https://localhost:9200")
+        self.es = Elasticsearch("http://elasticsearch:9200")
         self.es = Elasticsearch(hosts, verify_certs=False)  # 关闭证书验证
 
 #执行日志查询，返回匹配的日志记录
